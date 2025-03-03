@@ -35,7 +35,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker build -f code/Dockerfile -t ai-data-engineer-assignment:latest | tee docker_build.log
+        run: docker build -f code/Dockerfile -t ai-data-engineer-assignment:latest . | tee docker_build.log
 
       - name: List Docker images
         run: docker images
