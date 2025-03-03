@@ -35,7 +35,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker build -f code/Dockerfile -t ai-data-engineer-assignment | tee docker_build.log
+        run: docker build -f code/Dockerfile -t ai-data-engineer-assignment:latest | tee docker_build.log
 
       - name: List Docker images
         run: docker images
@@ -48,7 +48,7 @@ jobs:
 
       - name: Save pip list
         run: |
-          docker run --rm ai-data-engineer-assignment pip list > pip_list.txt
+          docker run --rm ai-data-engineer-assignment:latest pip list > pip_list.txt
 
       - name: Upload pip list
         uses: actions/upload-artifact@v4
