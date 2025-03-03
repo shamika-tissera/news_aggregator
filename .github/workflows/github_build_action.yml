@@ -41,7 +41,7 @@ jobs:
         run: docker images
 
       - name: Save Docker build log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docker-build-log
           path: docker_build.log
@@ -51,7 +51,7 @@ jobs:
           docker run --rm ai-data-engineer-assignment pip list > pip_list.txt
 
       - name: Upload pip list
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pip-list
           path: pip_list.txt
