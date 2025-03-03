@@ -18,7 +18,6 @@ import yaml
 from pyspark.sql import SparkSession, DataFrame, Row
 from pyspark.sql import functions as F
 
-
 def load_config(cfg_path: str) -> dict:
     """
     Load configuration from a YAML file.
@@ -33,7 +32,6 @@ def load_config(cfg_path: str) -> dict:
         config = yaml.safe_load(f)
     return config
 
-
 def create_spark_session(app_name: str = "DataProcessing") -> SparkSession:
     """
     Create and return a Spark session.
@@ -46,7 +44,6 @@ def create_spark_session(app_name: str = "DataProcessing") -> SparkSession:
     """
     spark = SparkSession.builder.appName(app_name).getOrCreate()
     return spark
-
 
 def download_dataset(spark: SparkSession, config: dict) -> DataFrame:
     """
@@ -70,7 +67,6 @@ def download_dataset(spark: SparkSession, config: dict) -> DataFrame:
     pdf = dataset.to_pandas()
     df = spark.createDataFrame(pdf)
     return df
-
 
 def process_specific_words(spark: SparkSession, df: DataFrame, output_dir: str) -> None:
     """
@@ -99,7 +95,6 @@ def process_specific_words(spark: SparkSession, df: DataFrame, output_dir: str) 
     result.write.mode("overwrite").parquet(output_path)
     logging.info(f"Specific word count saved to {output_path}")
 
-
 def process_all_words(spark: SparkSession, df: DataFrame, output_dir: str) -> None:
     """
     Process the dataset to count all unique words in the 'description' column.
@@ -120,7 +115,6 @@ def process_all_words(spark: SparkSession, df: DataFrame, output_dir: str) -> No
     result.write.mode("overwrite").parquet(output_path)
     logging.info(f"All words count saved to {output_path}")
 
-
 def main():
     parser = argparse.ArgumentParser(description="AI Data Engineer Assignment Application")
     subparsers = parser.add_subparsers(dest="command", help="Sub-command to run")
@@ -137,7 +131,12 @@ def main():
 
     args = parser.parse_args()
 
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+    # Configure logging to write to a file
+    log_filename = f"logs_{datetime.datetime.today().strftime('%Y%m%d')}.log"
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s",
+                        handlers=[logging.FileHandler(log_filename), logging.StreamHandler()])
+
+    logging.info("Starting the application")
     
     config = load_config(args.cfg)
     logging.info("Configuration loaded.")
@@ -161,6 +160,7 @@ def main():
         logging.error("No valid command provided.")
     
     spark.stop()
+    logging.info("Application finished")
 
 
 if __name__ == "__main__":
