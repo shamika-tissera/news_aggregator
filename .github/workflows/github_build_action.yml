@@ -49,6 +49,8 @@ jobs:
       - name: Save pip list
         run: |
           docker run --rm ai-data-engineer-assignment pip list > pip_list.txt
+
+      - name: Upload pip list
         uses: actions/upload-artifact@v3
         with:
           name: pip-list
