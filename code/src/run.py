@@ -95,6 +95,9 @@ def process_specific_words(spark: SparkSession, df: DataFrame, output_dir: str) 
     result.write.mode("overwrite").parquet(output_path)
     logging.info(f"Specific word count saved to {output_path}")
 
+    with open("logs/Data_processed.txt", "w") as log_file:
+        log_file.write("Data processing complete for specific words.\n")
+
 def process_all_words(spark: SparkSession, df: DataFrame, output_dir: str) -> None:
     """
     Process the dataset to count all unique words in the 'description' column.
@@ -114,6 +117,9 @@ def process_all_words(spark: SparkSession, df: DataFrame, output_dir: str) -> No
     output_path = f"{output_dir}/word_count_all_{today}.parquet"
     result.write.mode("overwrite").parquet(output_path)
     logging.info(f"All words count saved to {output_path}")
+
+    with open("logs/Data_processed_all.txt", "w") as log_file:
+        log_file.write("Data processing complete for all words.\n")
 
 def main():
     parser = argparse.ArgumentParser(description="AI Data Engineer Assignment Application")
