@@ -13,8 +13,6 @@ WORKDIR /app
 
 # Copy the project files into the Docker image
 COPY . /app
-COPY code/ /app/code/
-COPY config/ /app/config/
 
 # Install additional requirements from requirements.txt
 RUN pip install -r code/requirements.txt
