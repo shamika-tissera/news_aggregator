@@ -38,7 +38,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker build -f code/Dockerfile -t ai-data-engineer-assignment:latest . | tee docker_build.log
+        run: docker build -f code/Dockerfile -t ai-data-engineer-assignment:latest . | tee Docker_build.txt
 
       - name: List Docker images
         run: docker images
@@ -47,23 +47,24 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: docker-build-log
-          path: docker_build.log
+          path: Docker_build.txt
 
       - name: Save pip list
         run: |
-          docker run --rm ai-data-engineer-assignment:latest pip list > pip_list.txt
+          mkdir -p logs
+          docker run --rm ai-data-engineer-assignment:latest pip list > logs/pip_list.txt
 
       - name: Upload pip list
         uses: actions/upload-artifact@v4
         with:
           name: pip-list
-          path: pip_list.txt
+          path: logs/pip_list.txt
 
       - name: Commit and push pip list
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add pip_list.txt
+          git add logs/pip_list.txt
           git commit -m 'Add pip list'
           git push
         env:
