@@ -40,7 +40,7 @@ jobs:
       - name: Build Docker image
         run: |
           mkdir -p logs
-          docker build -f code/Dockerfile -t ai-data-engineer-assignment:latest . | tee logs/Docker_build.txt
+          docker build --progress=plain -f code/Dockerfile -t ai-data-engineer-assignment:latest . 2>&1 | tee logs/Docker_build.txt
 
       - name: List Docker images
         run: docker images
