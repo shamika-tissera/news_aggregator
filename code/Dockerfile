@@ -12,10 +12,10 @@ RUN conda install -y pyspark pytorch numpy pandas scipy scikit-learn && \
 WORKDIR /app
 
 # Copy the project files into the Docker image
-COPY code/ /app/code/
+COPY . /app
 
-# Expose any ports if needed (not required for this batch application)
-# EXPOSE 8080
+# Install additional requirements from requirements.txt
+RUN pip install -r code/requirements.txt
 
 # Command to run the application using the provided bash script
 CMD ["bash", "/app/code/script/run.sh"]
