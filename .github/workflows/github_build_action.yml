@@ -66,13 +66,13 @@ jobs:
         run: |
           mkdir -p logs
           docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
-            python /app/code/src/run.py process_data --cfg config/cfg.yaml -dataset news --dirout ztmp/data
+            python /app/code/src/run.py process_data --cfg config/config.yaml -dataset news --dirout ztmp/data
 
       - name: Process all words
         run: |
           mkdir -p logs
           docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
-            python /app/code/src/run.py process_data_all --cfg config/cfg.yaml -dataset news --dirout ztmp/data
+            python /app/code/src/run.py process_data_all --cfg config/config.yaml -dataset news --dirout ztmp/data
 
       - name: Upload data processed logs
         uses: actions/upload-artifact@v4
