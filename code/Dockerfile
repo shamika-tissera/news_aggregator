@@ -1,11 +1,10 @@
-# Use Debian-based miniconda image
 FROM continuumio/miniconda3:latest
 
 RUN conda install python=3.11 -y
 
-RUN apt-get update && apt-get install -y openjdk-11-jdk
+RUN apt-get update && apt-get install -y default-jdk
 
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/default-java
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 RUN conda install -y pyspark pytorch numpy pandas scipy scikit-learn && \
