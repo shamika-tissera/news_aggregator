@@ -1,23 +1,62 @@
-import unittest
-from config.config import load_config
+import pytest
 import os
+import sys
+from pathlib import Path
 
-class TestConfig(unittest.TestCase):
-    def setUp(self):
-        self.config_path = 'config/test_config.yaml'
-        with open(self.config_path, 'w') as f:
-            f.write("dataset_name: 'sh0416/ag_news'\nsplit: 'test'")
+import yaml
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'src'))
+from config.config import load_config
 
-    def tearDown(self):
-        os.remove(self.config_path)
+def test_load_config_simple_yaml():
+    config_content = """
+    dataset_name: "sh0416/ag_news"
+    split: "test"
+    """
+    config_path = "simple_config.yaml"
+    with open(config_path, "w") as f:
+        f.write(config_content)
 
-    def test_load_config(self):
-        config = load_config(self.config_path)
-        self.assertIsInstance(config, dict)
-        self.assertIn('dataset_name', config)
-        self.assertIn('split', config)
-        self.assertEqual(config['dataset_name'], 'sh0416/ag_news')
-        self.assertEqual(config['split'], 'test')
+    config = load_config(config_path)
+    assert config["dataset_name"] == "sh0416/ag_news"
+    assert config["split"] == "test"
 
-if __name__ == '__main__':
-    unittest.main()
+    os.remove(config_path)
+
+def test_load_config_complex_yaml():
+    config_content = """
+    dataset:
+      name: "sh0416/ag_news"
+      split: "test"
+    model:
+      type: "bert"
+      version: "base"
+    """
+    config_path = "complex_config.yaml"
+    with open(config_path, "w") as f:
+        f.write(config_content)
+
+    config = load_config(config_path)
+    assert config["dataset"]["name"] == "sh0416/ag_news"
+    assert config["dataset"]["split"] == "test"
+    assert config["model"]["type"] == "bert"
+    assert config["model"]["version"] == "base"
+
+    os.remove(config_path)
+
+def test_load_config_missing_file():
+    with pytest.raises(FileNotFoundError):
+        load_config("non_existent_config.yaml")
+
+def test_load_config_invalid_yaml():
+    config_content = """
+    dataset_name: "sh0416/ag_news"
+    split: "test
+    """  # Note: there is a missing double quote in the "split" value
+    config_path = "invalid_config.yaml"
+    with open(config_path, "w") as f:
+        f.write(config_content)
+
+    with pytest.raises(yaml.YAMLError):
+        load_config(config_path)
+
+    os.remove(config_path)
