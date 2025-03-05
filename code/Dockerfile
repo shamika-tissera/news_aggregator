@@ -2,7 +2,7 @@ FROM continuumio/miniconda3:latest
 
 RUN conda install python=3.11 -y
 
-RUN apt-get update && apt-get install -y default-jdk
+RUN apt-get update && apt-get --no-install-recommends install -y default-jdk
 
 ENV JAVA_HOME=/usr/lib/jvm/default-java
 ENV PATH=$JAVA_HOME/bin:$PATH
