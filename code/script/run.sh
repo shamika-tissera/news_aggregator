@@ -7,7 +7,7 @@ OUTPUT_DIR="$DIR/../../ztmp/data"
 mkdir -p "$OUTPUT_DIR"
 
 echo "Running specific words count..."
-python3 "$DIR/../src/run.py" process_data --cfg "$CFG_FILE" -dataset news --dirout "$OUTPUT_DIR"
+python3 "$DIR/../src/main.py" process_data --cfg "$CFG_FILE" -dataset news --dirout "$OUTPUT_DIR"
 
 echo "Running all words count..."
-python3 "$DIR/../src/run.py" process_data_all --cfg "$CFG_FILE" -dataset news --dirout "$OUTPUT_DIR"
+python3 "$DIR/../src/main.py" process_data_all --cfg "$CFG_FILE" -dataset news --dirout "$OUTPUT_DIR"

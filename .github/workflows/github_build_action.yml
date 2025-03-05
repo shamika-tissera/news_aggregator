@@ -66,9 +66,8 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add logs/Docker_build.txt
-          git add logs/pip_list.txt
-          git commit -m 'Add pip list and docker build logs'
+          git add logs/*.txt
+          git commit -m 'Add pip list and logs'
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
