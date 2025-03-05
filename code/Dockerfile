@@ -9,8 +9,7 @@ RUN conda install -y pyspark pytorch numpy pandas scipy scikit-learn && \
 WORKDIR /app
 
 COPY . /app
-COPY app/config.yaml /app/config/config.yaml
 
-RUN pip install -r /app/code/requirements.txt
+RUN pip install -r code/requirements.txt
 
 CMD ["bash", "/app/code/script/run.sh"]
