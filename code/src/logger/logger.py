@@ -41,7 +41,7 @@ class Logger:
         else:
             self.logger = logging.getLogger(scope.value)
             self.logger.setLevel(logging.INFO)
-            file_handler = logging.FileHandler(f"logs/{scope.value}.log")
+            file_handler = logging.FileHandler(f"logs/{scope.value}.txt")
             stream_handler = logging.StreamHandler()
             formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
             file_handler.setFormatter(formatter)
