@@ -1,6 +1,7 @@
 import logging
 from .log_levels import LogLevel
 from .log_scope import LogScope
+import os
 
 class Logger:
     """
@@ -34,6 +35,7 @@ class Logger:
         Raises:
             Exception: If a logger for the given scope already exists.
         """
+        os.makedirs("logs", exist_ok=True)
         if scope in Logger.__loggers:
             raise Exception("This logger already exists!")
         else:
