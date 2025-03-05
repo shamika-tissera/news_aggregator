@@ -11,6 +11,6 @@ WORKDIR /app
 COPY . /app
 COPY config/config.yaml /app/config/config.yaml
 
-RUN pip install -r code/requirements.txt
+RUN pip install -r /app/code/requirements.txt
 
 CMD ["bash", "/app/code/script/run.sh"]
