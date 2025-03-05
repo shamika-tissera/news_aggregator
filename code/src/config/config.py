@@ -1,3 +1,4 @@
+import os
 import yaml
 
 def load_config(cfg_path: str) -> dict:
@@ -10,6 +11,9 @@ def load_config(cfg_path: str) -> dict:
     Returns:
         dict: Dictionary with configuration parameters.
     """
-    with open(cfg_path, "r") as f:
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    full_path = os.path.join(base_path, cfg_path)
+
+    with open(full_path, "r") as f:
         config = yaml.safe_load(f)
     return config
