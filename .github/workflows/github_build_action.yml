@@ -67,7 +67,11 @@ jobs:
       - name: Move output files to output directory
         run: |
           mkdir -p output
-          mv ztmp/data/* output/
+          if [ -d "ztmp/data" ]; then
+            mv ztmp/data/* output/
+          else
+            echo "No data to move."
+          fi
 
       - name: Commit and push logs
         run: |
