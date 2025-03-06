@@ -66,6 +66,7 @@ jobs:
 
       - name: Move output files to output directory
         run: |
+          cd ..
           mkdir -p output
           if [ -d "ztmp/data" ]; then
             mv ztmp/data/* output/
