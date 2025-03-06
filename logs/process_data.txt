@@ -6,3 +6,5 @@
 2025-03-06 03:05:40,178 - process_data - INFO - Specific word count saved to ztmp/data/word_count_20250306.parquet
 2025-03-06 03:11:07,761 - process_data - INFO - Processing specific words data.
 2025-03-06 03:11:11,062 - process_data - INFO - Specific word count saved to ztmp/data/word_count_20250306.parquet
+2025-03-06 03:50:50,579 - process_data - INFO - Processing specific words data.
+2025-03-06 03:50:53,784 - process_data - INFO - Specific word count saved to ztmp/data/word_count_20250306.parquet
