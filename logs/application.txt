@@ -37,3 +37,5 @@
 2025-03-06 03:05:44,055 - application - INFO - Spark session created.
 2025-03-06 03:05:48,130 - application - INFO - Dataset loaded.
 2025-03-06 03:05:52,440 - application - INFO - Application finished
+2025-03-06 08:50:59,465 - application - INFO - Starting the application
+2025-03-06 08:50:59,882 - application - INFO - Configuration loaded.

@@ -55,13 +55,21 @@ jobs:
       - name: Process specific words
         run: |
           mkdir -p logs
-          docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
+          mkdir -p ztmp/data
+          docker run --rm \
+            -v $PWD/logs:/app/logs \
+            -v $PWD/ztmp/data:/app/ztmp/data \
+            ai-data-engineer-assignment:latest \
             python /app/code/src/main.py process_data --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
 
       - name: Process all words
         run: |
           mkdir -p logs
-          docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
+          mkdir -p ztmp/data
+          docker run --rm \
+            -v $PWD/logs:/app/logs \
+            -v $PWD/ztmp/data:/app/ztmp/data \
+            ai-data-engineer-assignment:latest \
             python /app/code/src/main.py process_data_all --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
 
       - name: Move output files to output directory
