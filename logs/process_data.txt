@@ -1,4 +1,0 @@
-2025-03-06 12:21:51,334 - process_data - INFO - Processing specific words data.
-2025-03-06 12:21:54,680 - process_data - INFO - Specific word count saved to ztmp/data/word_count_20250306.parquet
-2025-03-06 12:39:27,473 - process_data - INFO - Processing specific words data.
-2025-03-06 12:39:30,958 - process_data - INFO - Specific word count saved to /app/code/script/../../ztmp/data/word_count_20250306.parquet

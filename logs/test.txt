@@ -1,3 +1,0 @@
-INFO     application:logger.py:61 This is an info message
-WARNING  application:logger.py:63 This is a warning message
-ERROR    application:logger.py:65 This is an error message
