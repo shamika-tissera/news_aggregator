@@ -56,11 +56,16 @@ jobs:
         run: |
           docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest bash /app/code/script/run.sh
 
-      # - name: Process specific words
-      #   run: |
-      #     mkdir -p logs
-      #     docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
-      #       python /app/code/src/main.py process_data --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
+      - name: Process specific words
+        run: |
+          mkdir -p ztmp/data
+          docker run --rm \
+            -v $PWD/ztmp:/app/ztmp \
+            ai-data-engineer-assignment:latest \
+            python /app/code/src/main.py process_data \
+            --cfg /app/code/config/config.yaml \
+            -dataset news \
+            --dirout /app/ztmp/data
 
       # - name: Process all words
       #   run: |
