@@ -1,0 +1,4 @@
+2025-03-06 17:05:07,972 - process_data_all - INFO - Processing all words data.
+2025-03-06 17:05:14,473 - process_data_all - INFO - All word counts saved to /mnt/e/ProgrammingWorkspaces/Uzabase/code/script/../../ztmp/data/word_count_all_20250306.parquet
+2025-03-06 17:06:17,189 - process_data_all - INFO - Processing all words data.
+2025-03-06 17:06:23,296 - process_data_all - INFO - All word counts saved to /mnt/e/ProgrammingWorkspaces/Uzabase/code/script/../../ztmp/data/word_count_all_20250306.parquet
