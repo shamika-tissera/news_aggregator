@@ -65,3 +65,17 @@
 2025-03-06 03:50:57,715 - application - INFO - Spark session created.
 2025-03-06 03:51:00,269 - application - INFO - Dataset loaded.
 2025-03-06 03:51:04,380 - application - INFO - Application finished
+2025-03-06 09:37:52,991 - application - INFO - Starting the application
+2025-03-06 09:37:52,994 - application - INFO - Configuration loaded.
+2025-03-06 09:38:06,124 - application - INFO - Spark session created.
+2025-03-06 09:38:21,322 - application - INFO - Dataset loaded.
+2025-03-06 16:56:02,823 - application - INFO - Starting the application
+2025-03-06 16:56:02,843 - application - INFO - Configuration loaded.
+2025-03-06 16:56:10,743 - application - INFO - Spark session created.
+2025-03-06 16:56:25,823 - application - INFO - Dataset loaded.
+2025-03-06 16:56:32,239 - application - INFO - Application finished
+2025-03-06 16:57:14,719 - application - INFO - Starting the application
+2025-03-06 16:57:14,721 - application - INFO - Configuration loaded.
+2025-03-06 16:57:20,426 - application - INFO - Spark session created.
+2025-03-06 16:57:33,747 - application - INFO - Dataset loaded.
+2025-03-06 16:57:40,079 - application - INFO - Application finished
