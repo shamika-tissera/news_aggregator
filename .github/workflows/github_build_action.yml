@@ -64,6 +64,11 @@ jobs:
           docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
             python /app/code/src/main.py process_data_all --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
 
+      - name: Move output files to output directory
+        run: |
+          mkdir -p output
+          mv ztmp/data/* output/
+
       - name: Commit and push logs
         run: |
           git config --global user.name 'github-actions[bot]'
