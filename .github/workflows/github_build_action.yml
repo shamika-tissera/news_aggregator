@@ -67,7 +67,7 @@ jobs:
       - name: Move parquet files
         run: |
           mkdir -p output
-          mv ztmp/data/*.parquet output/
+          sudo mv ztmp/data/*.parquet output/
           echo "Moved parquet files to output directory"          
 
       - name: Commit and push logs
