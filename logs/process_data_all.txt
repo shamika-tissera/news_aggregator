@@ -1,0 +1,3 @@
+2025-03-06 16:55:09,111 - process_data_all - INFO - All word counts saved to /tmp/pytest-of-runner/pytest-0/test_process_all_words0/word_count_all_20250306.parquet
+2025-03-06 16:58:52,910 - process_data_all - INFO - Processing all words data.
+2025-03-06 16:58:56,533 - process_data_all - INFO - All word counts saved to /app/code/script/../../ztmp/data/word_count_all_20250306.parquet
