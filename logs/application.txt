@@ -24,3 +24,16 @@
 2025-03-06 02:35:25,364 - application - INFO - Spark session created.
 2025-03-06 02:35:29,417 - application - INFO - Dataset loaded.
 2025-03-06 02:35:33,700 - application - INFO - Application finished
+2025-03-06 03:02:01,269 - application - INFO - This is an info message
+2025-03-06 03:02:01,270 - application - WARNING - This is a warning message
+2025-03-06 03:02:01,271 - application - ERROR - This is an error message
+2025-03-06 03:05:28,849 - application - INFO - Starting the application
+2025-03-06 03:05:28,849 - application - INFO - Configuration loaded.
+2025-03-06 03:05:31,740 - application - INFO - Spark session created.
+2025-03-06 03:05:36,664 - application - INFO - Dataset loaded.
+2025-03-06 03:05:40,429 - application - INFO - Application finished
+2025-03-06 03:05:41,730 - application - INFO - Starting the application
+2025-03-06 03:05:41,730 - application - INFO - Configuration loaded.
+2025-03-06 03:05:44,055 - application - INFO - Spark session created.
+2025-03-06 03:05:48,130 - application - INFO - Dataset loaded.
+2025-03-06 03:05:52,440 - application - INFO - Application finished
