@@ -1,2 +1,0 @@
-2025-03-06 13:15:39,090 - process_data_all - INFO - Processing all words data.
-2025-03-06 13:15:42,872 - process_data_all - INFO - All word counts saved to /app/code/script/../../ztmp/data/word_count_all_20250306.parquet

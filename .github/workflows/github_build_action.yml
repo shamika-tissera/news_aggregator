@@ -62,24 +62,23 @@ jobs:
           docker run --rm \
             -v $PWD/ztmp:/app/ztmp \
             ai-data-engineer-assignment:latest \
-            bash /app/code/script/run.sh
+            bash /app/code/script/run.sh 
 
-      # - name: Process all words
-      #   run: |
-      #     mkdir -p logs
-      #     docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
-      #       python /app/code/src/main.py process_data_all --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
+      - name: Move parquet files
+        run: |
+          mv ztmp/data/*.parquet output/
+          echo "Moved parquet files to output directory"          
 
       - name: Commit and push logs
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
+          git add logs/* output/*
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m 'Add pip list, docker build logs, data processed logs'
+            git commit -m 'Add pip list, logs, and parquet files'
             git push
-          fi          
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
