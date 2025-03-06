@@ -1,0 +1,13 @@
+2025-03-06 13:02:25,566 - application - INFO - This is an info message
+2025-03-06 13:02:25,567 - application - WARNING - This is a warning message
+2025-03-06 13:02:25,568 - application - ERROR - This is an error message
+2025-03-06 13:05:59,689 - application - INFO - Starting the application
+2025-03-06 13:05:59,690 - application - INFO - Configuration loaded.
+2025-03-06 13:06:02,833 - application - INFO - Spark session created.
+2025-03-06 13:06:07,888 - application - INFO - Dataset loaded.
+2025-03-06 13:06:13,284 - application - INFO - Application finished
+2025-03-06 13:06:14,572 - application - INFO - Starting the application
+2025-03-06 13:06:14,572 - application - INFO - Configuration loaded.
+2025-03-06 13:06:17,582 - application - INFO - Spark session created.
+2025-03-06 13:06:20,651 - application - INFO - Dataset loaded.
+2025-03-06 13:06:25,948 - application - INFO - Application finished
