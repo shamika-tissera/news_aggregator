@@ -55,32 +55,14 @@ jobs:
       - name: Process specific words
         run: |
           mkdir -p logs
-          mkdir -p ztmp/data
-          docker run --rm \
-            -v $PWD/logs:/app/logs \
-            -v $PWD/ztmp/data:/app/ztmp/data \
-            ai-data-engineer-assignment:latest \
+          docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
             python /app/code/src/main.py process_data --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
 
       - name: Process all words
         run: |
           mkdir -p logs
-          mkdir -p ztmp/data
-          docker run --rm \
-            -v $PWD/logs:/app/logs \
-            -v $PWD/ztmp/data:/app/ztmp/data \
-            ai-data-engineer-assignment:latest \
+          docker run --rm -v $PWD/logs:/app/logs ai-data-engineer-assignment:latest \
             python /app/code/src/main.py process_data_all --cfg /app/code/config/config.yaml -dataset news --dirout ztmp/data
-
-      - name: Move output files to output directory
-        run: |
-          cd ..
-          mkdir -p output
-          if [ -d "ztmp/data" ]; then
-            mv ztmp/data/* output/
-          else
-            echo "No data to move."
-          fi
 
       - name: Commit and push logs
         run: |
@@ -91,6 +73,14 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m 'Add pip list, docker build logs, data processed logs'
+            git push
+          fi
+
+          git add ztmp/data/*
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m 'Added parquet files'
             git push
           fi
         env:
