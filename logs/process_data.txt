@@ -1,0 +1,2 @@
+2025-03-06 14:53:08,684 - process_data - INFO - Processing specific words data.
+2025-03-06 14:53:11,852 - process_data - INFO - Specific word count saved to /app/code/script/../../ztmp/data/word_count_20250306.parquet
