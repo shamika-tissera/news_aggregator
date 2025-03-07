@@ -1,6 +1,0 @@
-2025-03-06 16:58:41,211 - spark - INFO - Spark session 'AI_Data_Engineer_Assignment' created.
-2025-03-06 16:58:41,211 - spark - INFO - Loading dataset 'sh0416/ag_news' with split 'test' using Hugging Face datasets
-2025-03-06 16:58:43,922 - spark - INFO - Dataset 'sh0416/ag_news' loaded and converted to Spark DataFrame.
-2025-03-06 16:58:50,730 - spark - INFO - Spark session 'AI_Data_Engineer_Assignment' created.
-2025-03-06 16:58:50,730 - spark - INFO - Loading dataset 'sh0416/ag_news' with split 'test' using Hugging Face datasets
-2025-03-06 16:58:52,909 - spark - INFO - Dataset 'sh0416/ag_news' loaded and converted to Spark DataFrame.
