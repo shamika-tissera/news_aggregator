@@ -40,7 +40,7 @@ jobs:
       - name: Build Docker image
         run: |
           mkdir -p logs
-          docker build -t ai-data-engineer-assignment:latest -f code/Dockerfile . | tee logs/docker_build.txt
+          docker build -t ai-data-engineer-assignment:latest -f code/Dockerfile . 2>&1 | tee logs/docker_build.txt
 
       - name: Save pip list to logs
         run: |
