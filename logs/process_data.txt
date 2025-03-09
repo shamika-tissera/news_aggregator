@@ -1,3 +1,6 @@
 2025-03-09 07:19:47,846 - process_data - INFO - Specific word count saved to /tmp/pytest-of-runner/pytest-0/test_process_specific_words_wi0/word_count_20250309.parquet
 2025-03-09 07:23:30,889 - process_data - INFO - Processing specific words data.
 2025-03-09 07:23:34,362 - process_data - INFO - Specific word count saved to /app/code/script/../../ztmp/data/word_count_20250309.parquet
+2025-03-09 07:27:26,210 - process_data - INFO - Specific word count saved to /tmp/pytest-of-runner/pytest-0/test_process_specific_words_wi0/word_count_20250309.parquet
+2025-03-09 07:31:01,902 - process_data - INFO - Processing specific words data.
+2025-03-09 07:31:05,297 - process_data - INFO - Specific word count saved to /app/code/script/../../ztmp/data/word_count_20250309.parquet
