@@ -39,11 +39,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ai-data-engineer-assignment:latest -f code/Dockerfile .
+          mkdir -p logs
+          docker build -t ai-data-engineer-assignment:latest -f code/Dockerfile . | tee logs/docker_build.txt
 
       - name: Save pip list to logs
         run: |
-          mkdir -p logs
           docker run --rm ai-data-engineer-assignment:latest pip list > logs/pip_list.txt
 
       - name: Upload pip list
@@ -62,7 +62,7 @@ jobs:
           docker run --rm \
             -v $PWD/ztmp:/app/ztmp \
             ai-data-engineer-assignment:latest \
-            bash /app/code/script/run.sh 
+            bash /app/code/script/run.sh
 
       - name: Move parquet files
         run: |
